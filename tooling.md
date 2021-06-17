@@ -33,5 +33,7 @@
 - [owlready2](https://owlready2.readthedocs.io)
 - [Julia AST](https://docs.julialang.org/en/v1/devdocs/ast/)
 - [Pluto.jl](https://github.com/fonsp/Pluto.jl)
-- ...
+- [commitlint](https://github.com/conventional-changelog/commitlint/#what-is-commitlint)
+- [libera chat](https://libera.chat/guides/connect)
+- [superset](https://superset.apache.org/)
 
