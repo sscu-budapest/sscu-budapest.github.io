@@ -1,0 +1,23 @@
+
+
+{% if include.topic %}
+    {% assign releases = site.releases | where:"topic.topic_id", include.topic | reverse %}
+{% elsif include.repo %}
+    {% assign releases = site.releases | where:"repo.name", include.repo | reverse}
+{%else %}
+    {% assign releases = site.releases %}
+{% endif %}
+
+{% if include.limit %}
+    {% assign rlimit = include.limit %}
+{%else %}
+    {% assign rlimit = 3 %}
+{% endif %}
+
+<ul>
+    {% for release in releases limit : rlimit %}
+    <li>{% include release.html repo=include.write_repo topic=include.write_topic %}</li>
+    {% endfor %}
+</ul>
+
+
