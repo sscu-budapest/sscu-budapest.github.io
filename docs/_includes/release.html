@@ -1,0 +1,23 @@
+<div class="card m-3">
+    {% if include.repo or include.topic %}
+    <div class="card-header">
+        <div class="row">
+            {% if include.repo %}
+            <div class="col-6"><b><a href="{{ release.repo.link }}">{{ release.repo.name }}</a></b></div>
+            {% endif %}
+            {% if include.topic %}
+            <div class="col-6"><a href="/{{ release.topic.topic_id }}">{{ release.topic.name }}</a></div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+    <div class="card-body">
+        <div class="row">
+            <div class="col-2"><small>{{ release.tag }}</small></div>
+            <div class="col-8"><a href="{{ release.link }}">{{ release.title }}</a></div>
+            <div class="col-2"><small>{{ release.date | date_to_string }}</small></div>
+
+        </div>
+    </div>
+    <!-- <div class="card-footer"></div> -->
+</div>
