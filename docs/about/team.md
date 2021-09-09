@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Personnel
-permalink: /personnel/
+title: Team
+permalink: /team/
 parent: About
 nav_order: 1
 ---
