@@ -87,6 +87,7 @@ def build(ctx):
 
     for d in [release_root, topic_root, repo_root]:
         ctx.run(f"rm -rf {d}")
+        d.mkdir()
 
     for r in releases:
         fname = r.get_fname()

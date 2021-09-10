@@ -1,4 +1,4 @@
-name: Python Test
+name: Build Site
 
 on:
   schedule:
