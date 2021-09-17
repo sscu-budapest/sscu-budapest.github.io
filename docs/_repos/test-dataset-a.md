@@ -1,5 +1,9 @@
 ---
 description: null
-link: https://api.github.com/repos/sscu-budapest/test-dataset-a
+link: https://github.com/sscu-budapest/test-dataset-a
 name: test-dataset-a
+topic:
+  name: Dataset
+  plural: Datasets
+  topic_id: dataset
 ---
