@@ -11,7 +11,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+    - name: Set up Git
+      run : |
+        git config --global user.name 'Github Actions Build'
+        git config --global user.email 'ci@example.org'
     - name: Set up Python
       uses: actions/setup-python@v1
       with:
