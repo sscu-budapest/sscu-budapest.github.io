@@ -3,6 +3,13 @@ layout: page
 title: About
 nav_order: 2
 has_children: true
+seo:
+  name: 
+    - SSCUB
+    - Social Science Computing Unit Budapest
+    - sscu-budapest
+  type: Organization
+
 ---
 
 # **S**ocial **S**cience **C**omputing **U**nit - **B**udapest
