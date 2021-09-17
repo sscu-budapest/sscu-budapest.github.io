@@ -8,7 +8,7 @@ nav_order: 1
 
 # Starting a Collaboration
 
-To start or extend a collaboration with us, that results in either the creation or development of a dataset or research project, we suggest you **write an email to {{ site.org_email }}**
+To start or extend a collaboration with us, that results in either the creation or development of a dataset or research project, we suggest you **write an email to {{ site.publisher.email }}**
 
 ## What you need to provide
 
