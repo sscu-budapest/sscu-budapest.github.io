@@ -51,7 +51,7 @@ topics = [
 
 
 @task
-def build(ctx):
+def build(ctx, commit=False):
 
     topic_repos = []
 
@@ -66,7 +66,7 @@ def build(ctx):
         for topic in topics:
             if topic.topic_id not in repo_topics.names:
                 continue
-            repo = Repo(gh_repo.name, gh_repo.url, gh_repo.description, topic)
+            repo = Repo(gh_repo.name, gh_repo.svn_url, gh_repo.description, topic)
             topic_repos.append(repo)
             for release in api.repos.list_releases(org, repo.name, per_page=10):
                 releases.append(
@@ -99,7 +99,9 @@ def build(ctx):
     for rep in topic_repos:
         (repo_root / f"{rep.name}.md").write_text(to_fm(rep))
 
-    for d in [release_root, topic_root, repo_root]:
-        ctx.run(f"git add {d}")
+    if commit:
+        for d in [release_root, topic_root, repo_root]:
+            ctx.run(f"git add {d}")
 
-    ctx.run(f'git commit -m reubild "rebuild-{dt.date.today()}"')
+        ctx.run(f'git commit -m "rebuild-{dt.date.today()}"')
+        ctx.run("git push")
