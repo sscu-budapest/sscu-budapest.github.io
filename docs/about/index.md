@@ -38,7 +38,7 @@ Most common resulting issues:
 ### Operational Practice Borrowed from Software Engineering
 
 - Adopt carefully selected [tooling](/tooling) designed for large scale, complex data related software projects.
-- Public and searchable [task board](https://github.com/orgs/sscu-budapest/projects/1) for transparency and cooperation.
+- Public and searchable [task board](https://github.com/orgs/sscu-budapest/projects/2) for transparency and cooperation.
 - Clear set of guiding [principles](/principles) like [FAIR](https://www.nature.com/articles/sdata201618.pdf) and [JDDCP](https://www.force11.org/datacitationprinciples) that can be cited during task priorization and other decision making.
 
 ### Openness
