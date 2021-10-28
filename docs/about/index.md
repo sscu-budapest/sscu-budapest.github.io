@@ -32,6 +32,7 @@ Most common resulting issues:
 - Redundant, repeated work
 - Possible cascading errors
 
+Many of the main issues are expanded in [this](https://scholar.harvard.edu/files/gking/files/1060.full_.pdf) article
 
 ## Approach
 
