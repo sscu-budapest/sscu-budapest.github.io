@@ -5,7 +5,7 @@ from pathlib import Path
 
 import yaml
 from ghapi.all import GhApi
-from invoke import task
+from invoke import task, UnexpectedExit
 
 org = "sscu-budapest"
 
@@ -103,5 +103,8 @@ def build(ctx, commit=False):
         for d in [release_root, topic_root, repo_root]:
             ctx.run(f"git add {d}")
 
-        ctx.run(f'git commit -m "rebuild-{dt.date.today()}"')
-        ctx.run("git push")
+        try:
+            ctx.run(f'git commit -m "rebuild-{dt.date.today()}"')
+            ctx.run("git push")
+        except UnexpectedExit:
+            pass
