@@ -6,9 +6,9 @@ nav_order: 1
 
 # **S**ocial **S**cience **C**omputing **U**nit - **B**udapest
 
-> A unit dedicated to aiding the production of high quality, reproducible and extendable social science research.
+> A unit dedicated to aiding the production of high quality, reproducible and extendable social science research. We intend to make use of and extend open-source [tools](/tooling) that have matured and gained popularity mainly in commercial data analysis and data science uses.
 
-Our goal is to build and maintain a diverse portfolio of complex, mostly large-scale datasets, we can use to create:
+Our goal is to build and maintain a diverse catalog of complex, mostly large-scale datasets, we can use to create:
 
 - reproducible and extendable multidisciplinary research
 - scalable computational methods that generalize well for problems dealing with data concerning human behavior, social networks, geolocation, organizational structure and similar useful topics
