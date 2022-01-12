@@ -14,6 +14,13 @@ report_repo = "sscu-budapest.github.io"
 fm_rex = re.compile(r"---\r?\n(.*)\r?\n---")
 
 
+release_root = Path("docs", "_releases")
+topic_root = Path("docs", "_topics")
+repo_root = Path("docs", "_repos")
+report_root = Path("docs", "_reports")
+report_target = Path("docs", "reports")
+
+
 def to_fm(obj):
     return "\n".join(["---", yaml.dump(asdict(obj)).strip(), "---"])
 
@@ -85,10 +92,6 @@ def build(ctx, commit=False):
                     )
                 )
 
-    release_root = Path("docs", "_releases")
-    topic_root = Path("docs", "_topics")
-    repo_root = Path("docs", "_repos")
-
     for d in [release_root, topic_root, repo_root]:
         ctx.run(f"rm -rf {d}")
         d.mkdir()
@@ -104,7 +107,7 @@ def build(ctx, commit=False):
         (repo_root / f"{rep.name}.md").write_text(to_fm(rep))
 
     if commit:
-        for d in [release_root, topic_root, repo_root]:
+        for d in [release_root, topic_root, repo_root, report_target]:
             ctx.run(f"git add {d}")
 
         try:
@@ -115,9 +118,6 @@ def build(ctx, commit=False):
 
 
 def parse_reports(api):
-
-    report_root = Path("docs", "_reports")
-    report_target = Path("docs", "reports")
 
     for report_fp in report_root.glob("*.md"):
         report_str = report_fp.read_text()
