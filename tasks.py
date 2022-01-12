@@ -1,5 +1,4 @@
 import datetime as dt
-import re
 import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -11,8 +10,6 @@ from invoke import UnexpectedExit, task
 org = "sscu-budapest"
 report_repo = "sscu-budapest.github.io"
 
-fm_rex = re.compile(r"---\r?\n(.*)\r?\n---")
-
 
 release_root = Path("docs", "_releases")
 topic_root = Path("docs", "_topics")
@@ -21,8 +18,12 @@ report_root = Path("docs", "_reports")
 report_target = Path("docs", "reports")
 
 
+def dic_to_fm(dic):
+    return "\n".join(["---", yaml.dump(dic).strip(), "---"])
+
+
 def to_fm(obj):
-    return "\n".join(["---", yaml.dump(asdict(obj)).strip(), "---"])
+    return dic_to_fm(asdict(obj))
 
 
 @dataclass
@@ -121,8 +122,7 @@ def parse_reports(api):
 
     for report_fp in report_root.glob("*.md"):
         report_str = report_fp.read_text()
-        report_fm = fm_rex.findall(report_str)[0]
-        issue_num = yaml.safe_load(report_fm)["issue"]
+        issue_num = int(report_fp.name[:-3])
 
         issue = api.issues.get(org, report_repo, issue_num)
 
@@ -136,5 +136,5 @@ def parse_reports(api):
         }
 
         (report_target / f"{issue_num}.md").write_text(
-            report_str.replace(report_fm, yaml.safe_dump(new_fm))
+            "\n".join(dic_to_fm(new_fm), report_str)
         )
