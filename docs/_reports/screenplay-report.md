@@ -1,0 +1,21 @@
+---
+issue: 44
+---
+
+# Collect screenplay data for either nlp or character networks for films / TV series
+
+## Screenplay 
+
+There are no comprehensive online databases of screenplays. There are some projects of particular series or films with acceptable data formats we can access, like [Sex and the City](https://www.kaggle.com/snapcrack/every-sex-and-the-city-script) or [Star wars](https://www.kaggle.com/xvivancos/analyzing-star-wars-movie-scripts) original trilogy.
+
+Besides those, some websites try to collect screenplays. The most popular one is [IMSDB](https://imsdb.com/). At first glance, some factors make it harder to use these scripts. Like different formats, formatting, and script versions, but it's workable. 
+
+## Closed Caption
+
+It is much easier to access the caption of films and series. We could scrape websites storing subtitles (e. g. [YIFY](https://yts-subs.com/)). However, they are not official, so maybe it would be better (and cooler) to use sources with a more official look. 
+
+I checked three streaming services [Netflix](https://www.netflix.com/browse), [Amazon Prime](https://www.primevideo.com/) and [HBO GO](https://hbogo.hu/). Netflix's and Amazon's captions seem to be relatively easily accessible. However, further examination is needed. 
+
+Developer tools -> Network -> Caption file. 
+Amazon stores its caption in a Timed Text Markup Language 2 (TTML2) format. You only need to find that file.
+Netflix starts the name of the caption file with a "?o=".
