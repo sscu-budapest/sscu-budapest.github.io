@@ -51,7 +51,7 @@ class Release:
     repo: Repo
 
     def get_fname(self):
-        return f"{self.date}-{self.release_id}.md"
+        return f"{self.date}-{self.release_id}.md".replace(":", "-")
 
 
 topics = [
