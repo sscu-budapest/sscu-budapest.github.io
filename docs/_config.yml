@@ -14,7 +14,7 @@ url: "https://sscu-budapest.github.io/" # the base hostname & protocol for your 
 github_username:  sscu-budapest
 
 # Build settings
-theme: just-the-docs
+# theme: just-the-docs
 remote_theme: pmarsceill/just-the-docs
 plugins:
   - jekyll-feed
