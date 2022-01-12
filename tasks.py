@@ -136,5 +136,5 @@ def parse_reports(api):
         }
 
         (report_target / f"{issue_num}.md").write_text(
-            "\n".join(dic_to_fm(new_fm), report_str)
+            "\n".join([dic_to_fm(new_fm), report_str])
         )
