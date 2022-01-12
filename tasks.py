@@ -1,13 +1,17 @@
 import datetime as dt
+import re
 import time
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
 import yaml
 from ghapi.all import GhApi
-from invoke import task, UnexpectedExit
+from invoke import UnexpectedExit, task
 
 org = "sscu-budapest"
+report_repo = "sscu-budapest.github.io"
+
+fm_rex = re.compile(r"---\r?\n(.*)\r?\n---")
 
 
 def to_fm(obj):
@@ -56,7 +60,7 @@ def build(ctx, commit=False):
     topic_repos = []
 
     api = GhApi()
-
+    parse_reports(api)
     all_repos = api.repos.list_for_org(org)
 
     releases = []
@@ -108,3 +112,29 @@ def build(ctx, commit=False):
             ctx.run("git push")
         except UnexpectedExit:
             pass
+
+
+def parse_reports(api):
+
+    report_root = Path("docs", "_reports")
+    report_target = Path("docs", "reports")
+
+    for report_fp in report_root.glob("*.md"):
+        report_str = report_fp.read_text()
+        report_fm = fm_rex.findall(report_str)[0]
+        issue_num = yaml.safe_load(report_fm)["issue"]
+
+        issue = api.issues.get(org, report_repo, issue_num)
+
+        new_fm = {
+            "issue_url": issue.html_url,
+            "issue_title": issue.title,
+            "issue_labels": [l.name for l in issue.labels],
+            "layout": "page",
+            "permalink": f"/reports/{issue_num}",
+            "parent": "Reports",
+        }
+
+        (report_target / f"{issue_num}.md").write_text(
+            report_str.replace(report_fm, yaml.safe_dump(new_fm))
+        )
