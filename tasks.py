@@ -14,7 +14,7 @@ report_repo = "sscu-budapest.github.io"
 _root = Path("docs")
 
 
-(release_root, topic_root, repo_root, label_root, report_target,) = all_io_dirs = [
+release_root, topic_root, repo_root, label_root, report_target = all_io_dirs = [
     _root / dirname
     for dirname in [
         "_releases",
@@ -161,7 +161,7 @@ def build(ctx, commit=False):
         (repo_root / f"{rep.name}.md").write_text(to_fm(rep))
 
     if commit:
-        for d in [release_root, topic_root, repo_root, report_target]:
+        for d in all_io_dirs:
             ctx.run(f"git add {d}")
 
         try:
