@@ -1,0 +1,8 @@
+<ul>
+    {% for issue in include.issues | sort: 'price' | reverse %}
+    
+    <li> <a href="/reports/{{issue.num}}">{{issue.title}}</a> (<a href="{{issue.url}}">#{{issue.num}}</a>) </li>
+    
+    
+    {% endfor %}
+</ul>    

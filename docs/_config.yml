@@ -22,6 +22,7 @@ collections:
   - releases
   - topics
   - repos
+  - labels
 
 
 logo: /assets/krtk-text-en.png

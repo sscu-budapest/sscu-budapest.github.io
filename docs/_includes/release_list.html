@@ -14,10 +14,9 @@
     {% assign rlimit = 3 %}
 {% endif %}
 
-<ul>
-    {% for release in releases limit : rlimit %}
-    <li>{% include release.html repo=include.write_repo topic=include.write_topic %}</li>
-    {% endfor %}
-</ul>
+
+{% for release in releases limit : rlimit %}
+<div>{% include release.html repo=include.write_repo topic=include.write_topic %}</div>
+{% endfor %}
 
 
