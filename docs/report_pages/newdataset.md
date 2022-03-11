@@ -5,6 +5,9 @@ issues:
 - num: 16
   title: GitHub
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/16
+- num: 13
+  title: Twitter API
+  url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/13
 - num: 60
   title: polygons of hungarian election zones
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/60
