@@ -2,6 +2,9 @@
 description: Creation of a new dataset
 id_: newdataset
 issues:
+- num: 16
+  title: GitHub
+  url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/16
 - num: 60
   title: polygons of hungarian election zones
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/60
@@ -10,7 +13,7 @@ issues:
     TV series
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/44
 - num: 41
-  title: Pypi downloads connected to github collaboration
+  title: Python Package Index
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/41
 title: New Dataset
 ---
