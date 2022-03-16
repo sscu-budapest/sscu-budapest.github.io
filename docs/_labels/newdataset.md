@@ -5,6 +5,9 @@ issues:
 - num: 16
   title: GitHub
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/16
+- num: 58
+  title: ingatlan.com dataset
+  url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/58
 - num: 13
   title: Twitter API
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/13
