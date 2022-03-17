@@ -2,6 +2,9 @@
 description: Creation of a new dataset
 id_: newdataset
 issues:
+- num: 36
+  title: Portfolio forum dataset creation
+  url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/36
 - num: 16
   title: GitHub
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/16
