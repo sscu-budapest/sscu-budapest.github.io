@@ -16,7 +16,19 @@ seo:
 
 ## Founding purpose
 
-> Aid the production of valuable social science research involving complex data processing, on large and interconnected datasets.
+Aid the production of valuable social science research involving complex data processing, on large and interconnected datasets.
+
+---
+
+Our goal is to build and maintain a diverse catalog of complex, mostly large-scale datasets, we can use to create:
+
+- reproducible and extendable multidisciplinary research
+- scalable computational methods that generalize well for problems dealing with data concerning human behavior, social networks, geolocation, organizational structure and similar useful topics
+- clear rules, procedures and infrastructure for data sharing and access
+- connections between researchers of different fields who might benefit from similar data sources or computational approaches
+- systems that automatically update datasets and research projects based on them
+
+These datasets are intended to be created based on researcher requests by either collecting and organizing publicly available data, or processing purchased data.
 
 
 ## Challenges
@@ -63,8 +75,6 @@ Self hosted datasets strictly adhering to an internally developed template, main
 
 
 ### Research Projects
-
-
 
 - all results are reproducible with one line of code
   - dataset subsets are interchangeable with a simple configuration modification

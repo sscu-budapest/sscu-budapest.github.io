@@ -1,7 +1,10 @@
 import datetime as dt
-import time
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
+from itertools import groupby
+import os
 from pathlib import Path
+from subprocess import check_call
+from tempfile import TemporaryDirectory
 from typing import List
 
 import yaml
@@ -9,17 +12,16 @@ from ghapi.all import GhApi
 from invoke import UnexpectedExit, task
 
 org = "sscu-budapest"
-report_repo = "sscu-budapest.github.io"
+report_repo = f"{org}.github.io"
 
 _root = Path("docs")
 
 
-release_root, topic_root, repo_root, label_root, report_target = all_io_dirs = [
+contribs_root, projects_root, label_root, report_target = all_io_dirs = [
     _root / dirname
     for dirname in [
-        "_releases",
-        "_topics",
-        "_repos",
+        "_contributions",
+        "_projects",
         "_labels",
         "report_pages",
     ]
@@ -37,33 +39,33 @@ def to_fm(obj):
 
 
 @dataclass
-class Topic:
+class Contributor:
     name: str
-    topic_id: str
-    plural: str
+    last: str
+    link: str 
 
 
 @dataclass
-class Repo:
+class Project:
     name: str
-    link: str
-    description: str
-    topic: Topic
-
-
-@dataclass
-class Release:
-    title: str
-    tag: str
-    link: str
-    date: str
-    release_id: int
-    topic: Topic
-    repo: Repo
+    repo_name: str
+    last_version: str
+    last_published: str
 
     @property
     def fpath(self):
-        return release_root / f"{self.date}-{self.release_id}.md".replace(":", "-")
+        return projects_root / f"{self.name}.md"
+
+
+@dataclass
+class Contribution:
+    link: str
+    name: str
+    latest: List[Contributor] = field(default_factory=list)
+
+    @property
+    def fpath(self):
+        return contribs_root / f"{self.name}.md"
 
 
 @dataclass
@@ -110,13 +112,6 @@ class Label:
         )
 
 
-topics = [
-    Topic("Dataset", "dataset", "Datasets"),
-    Topic("Research Project", "research-project", "Research Projects"),
-    Topic("Research Software", "research-software", "Research Software"),
-]
-
-
 @task
 def build(ctx, commit=False):
 
@@ -124,41 +119,38 @@ def build(ctx, commit=False):
         ctx.run(f"rm -rf {d}")
         d.mkdir()
 
-    topic_repos = []
-    api = GhApi()
+    api = GhApi(token=os.environ.get("GH_TOKEN"))
     parse_reports(api)
     all_repos = api.repos.list_for_org(org)
+    members = api.orgs.list_members(org)
+    fork_sources = [api.repos.get(org, r.name).source for r in all_repos if r.fork]
 
-    releases = []
-    for gh_repo in all_repos:
-        time.sleep(5)
-        repo_topics = api.repos.get_all_topics(org, gh_repo.name)
-        for topic in topics:
-            if topic.topic_id not in repo_topics.names:
+    for repo in fork_sources:
+        owner = repo.owner.login
+        rname = repo.name
+        contrib = Contribution(repo.html_url, rname)
+        for member in members:
+            user_id = member.login
+            commits = api.repos.list_commits(owner, rname, author=user_id)
+            if not commits:
                 continue
-            repo = Repo(gh_repo.name, gh_repo.svn_url, gh_repo.description, topic)
-            topic_repos.append(repo)
-            for release in api.repos.list_releases(org, repo.name, per_page=10):
-                releases.append(
-                    Release(
-                        release.name,
-                        release.tag_name,
-                        release.html_url,
-                        release.published_at,
-                        release.id,
-                        topic,
-                        repo,
-                    )
-                )
+            _date = commits[0].commit.author.date[:10]
+            _link = f"https://github.com/{owner}/{rname}/commits?author={user_id}"
+            contrib.latest.append(Contributor(member.login, _date, _link))
+        contrib.fpath.write_text(to_fm(contrib))
 
-    for r in releases:
-        r.fpath.write_text(to_fm(r))
-
-    for t in topics:
-        (topic_root / f"{t.topic_id}.md").write_text(to_fm(t))
-
-    for rep in topic_repos:
-        (repo_root / f"{rep.name}.md").write_text(to_fm(rep))
+    tdir = TemporaryDirectory()
+    check_call(["git", "clone", f"https://github.com/{org}/main-registry", tdir.name])
+    for proj_name, vs in groupby(
+        sorted(Path(tdir.name, "info").glob("*.yaml")), lambda p: p.name.split("-")[0]
+    ):
+        proj_dic = yaml.safe_load(Path(sorted(vs)[-1]).read_text())
+        last_tag = sorted(proj_dic["tags"])[-1]
+        _, v, tagid, __ = last_tag.split("/")  # zimmer-v0/0.0/2022.4.19.1/complete
+        repo_name = proj_dic["uri"].split("/")[-1]
+        p = Project(proj_name, repo_name, last_version=v, last_published=tagid)
+        p.fpath.write_text(to_fm(p))
+    tdir.cleanup()
 
     if commit:
         for d in all_io_dirs:
@@ -172,9 +164,7 @@ def build(ctx, commit=False):
 
 
 def parse_reports(api):
-
     labels = {}
-
     for report_fp in report_root.glob("*.md"):
         report_str = report_fp.read_text()
         issue_num = int(report_fp.name[:-3])
@@ -192,6 +182,6 @@ def parse_reports(api):
         report_page = "\n".join([dic_to_fm(issue_cls.fm), report_str])
         issue_cls.fpath.write_text(report_page)
 
-    for l in labels.values():
-        l.write_collection()
-        l.write_page()
+    for label in labels.values():
+        label.write_collection()
+        label.write_page()

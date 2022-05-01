@@ -19,9 +19,8 @@ remote_theme: pmarsceill/just-the-docs
 plugins:
   - jekyll-feed
 collections:
-  - releases
-  - topics
-  - repos
+  - contributions
+  - projects
   - labels
 
 

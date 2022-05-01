@@ -1,9 +1,0 @@
----
-description: null
-link: https://github.com/sscu-budapest/gps-ping-data
-name: gps-ping-data
-topic:
-  name: Research Project
-  plural: Research Projects
-  topic_id: research-project
----
