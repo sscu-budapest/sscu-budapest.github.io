@@ -3,7 +3,7 @@ description: Dataset of estimated values and other appearances of football playe
 link: https://github.com/sscu-budapest/football-player-values-data
 name: football-player-values-data
 topic:
-  name: Dataset
-  plural: Datasets
-  topic_id: dataset
+  name: Research Project
+  plural: Research Projects
+  topic_id: research-project
 ---
