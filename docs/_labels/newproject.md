@@ -1,6 +1,6 @@
 ---
-description: Creation of a new dataset
-id_: newdataset
+description: Creation of a new data project
+id_: newproject
 issues:
 - num: 60
   title: polygons of hungarian election zones
@@ -24,7 +24,5 @@ issues:
 - num: 36
   title: Portfolio forum dataset creation
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/36
-layout: label
-parent: Reports
-title: New Dataset
+title: New Project
 ---
