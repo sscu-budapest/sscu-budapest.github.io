@@ -30,9 +30,7 @@ A tested, documented main library that handles most of the above:
 [![pypi](https://img.shields.io/pypi/v/datazimmer.svg)](https://pypi.org/project/datazimmer/)
 <div class="github-card" data-github="{{site.github_username}}/datazimmer" data-width="500" data-height="" data-theme="default"></div>
 
-Contributions to closely or loosely related open source projects:
+## Open Source Contributions 
 
-{% for contrib in site.contributions %}
-- [{{contrib.name}}]({{contrib.link}}){% for pers in contrib.latest %}
-  - [{{pers.name}}]() ({{pers.last}}){% endfor %}
-{% endfor %}
+To closely or loosely related projects, like {% for contrib in site.contributions limit:3 %} [{{contrib.name}}]({{contrib.link}}){% if forloop.last != true %},{% endif %}{% endfor %} and [others](/about#contributions). 
+
