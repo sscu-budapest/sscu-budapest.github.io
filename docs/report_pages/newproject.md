@@ -2,15 +2,6 @@
 description: Creation of a new data project
 id_: newproject
 issues:
-- num: 16
-  title: GitHub Collaboration Information
-  url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/16
-- num: 44
-  title: Movie Dialogue and Closed Caption Data
-  url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/44
-- num: 13
-  title: Twitter Academic API
-  url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/13
 - num: 36
   title: Portfolio Financial Forum
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/36
