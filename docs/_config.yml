@@ -1,7 +1,7 @@
 title: Social Science Computing Unit Budapest
 publisher:
   name: Social Science Computing Unit Budapest
-  email: BigData@krtk.hu
+  email: sscub@krtk.hu
 author:
   name: Endre Márk Borza
   email: borza.endre@krtk.hu
@@ -22,6 +22,7 @@ collections:
   - contributions
   - projects
   - labels
+  - prospective_projects
 
 
 logo: /assets/krtk-text-en.png
