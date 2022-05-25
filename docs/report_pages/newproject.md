@@ -1,19 +1,18 @@
 ---
-description: Creation of a new dataset
-id_: newdataset
+description: Creation of a new data project
+id_: newproject
 issues:
 - num: 16
-  title: GitHub
+  title: GitHub Collaboration Information
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/16
 - num: 44
-  title: Collect screenplay data for either nlp or character networks for films /
-    TV series
+  title: Movie Dialogue and Closed Caption Data
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/44
 - num: 13
-  title: Twitter API
+  title: Twitter Academic API
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/13
 - num: 36
-  title: Portfolio forum dataset creation
+  title: Portfolio Financial Forum
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/36
 - num: 58
   title: ingatlan.com dataset
@@ -26,5 +25,5 @@ issues:
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/41
 layout: label
 parent: Reports
-title: New Dataset
+title: New Project
 ---

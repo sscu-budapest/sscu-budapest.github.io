@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-nav_order: 2
+nav_order: 5
 has_children: true
 seo:
   name: 
@@ -61,20 +61,17 @@ Many of the main issues are expanded in [this](https://scholar.harvard.edu/files
 
 ## Output
 
-### Datasets
+### Data Projects
 
 Self hosted datasets strictly adhering to an internally developed template, maintained and updated while involved in projects, fully contained in a git repository stored on github.
 
-- contains **metadata**, **storage configuration** and description of **subsets**
+- contains **metadata**, **storage configuration** and description of **environments**
 - all datasets have at least one open and publicly available subset
   - this can be scrambled, anonymized, use random samples, anything
   - needs to be able to be used by any project using the dataset
 - subsets are created using code available with the dataset
 - only contain data from one source
   - merging different datasets fro different sources happens at the project level
-
-
-### Research Projects
 
 - all results are reproducible with one line of code
   - dataset subsets are interchangeable with a simple configuration modification
@@ -89,3 +86,10 @@ Open source software that is used across many projects and datasets, deemed wort
 - documented
 - quality controlled
 - open source
+
+### Contributions
+
+{% for contrib in site.contributions %}
+- [{{contrib.name}}]({{contrib.link}}){% for pers in contrib.latest %}
+  - [{{pers.name}}]() ({{pers.last}}){% endfor %}
+{% endfor %}

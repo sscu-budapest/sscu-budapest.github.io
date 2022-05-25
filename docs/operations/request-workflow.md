@@ -21,4 +21,4 @@ To start or extend a collaboration with us, that results in either the creation 
 We might open communication if there is need for further clarification or suggestions, but the goal is to as quickly as possible send back:
 
 1. A link to a card on our [task board](https://github.com/orgs/sscu-budapest/projects/2) where you can follow the status of your request and its place in the priority order.
-2. When the initial task has been reviewed and moved up the to-do column, a link to the corresponding github issue - sent to the emails listed in the request. There you can subscribe to updates of progress and can discuss details and additional requests.
+2. When the initial task has been reviewed and moved up the to-do column, a link to the corresponding github issue - sent to the emails listed in the request. There you can subscribe to updates of progress and can discuss details and additional requests. This will also be visible as a prospective project on the [projects](/projects) page, if it is a new project, not just the extension of a current one.
