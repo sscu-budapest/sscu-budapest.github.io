@@ -1,3 +1,5 @@
 ghapi
 invoke
 pyyaml
+markdown
+requests
