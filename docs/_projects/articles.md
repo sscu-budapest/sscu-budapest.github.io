@@ -1,5 +1,5 @@
 ---
-last_published: 2022.9.3.23
+last_published: 2022.9.4.22
 last_version: '0.5'
 name: articles
 readme: <h1>Dataset of Scientific, Journalistic Articles and Blog Posts</h1>
