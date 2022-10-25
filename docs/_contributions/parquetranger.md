@@ -1,6 +1,6 @@
 ---
 latest:
-- last: '2022-10-23'
+- last: '2022-10-24'
   link: https://github.com/endremborza/parquetranger/commits?author=endremborza
   name: endremborza
 link: https://github.com/endremborza/parquetranger
