@@ -20,6 +20,9 @@ issues:
 - num: 58
   title: ingatlan.com dataset
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/58
+- num: 75
+  title: GTFS dataset
+  url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/75
 - num: 36
   title: Portfolio Financial Forum
   url: https://github.com/sscu-budapest/sscu-budapest.github.io/issues/36
