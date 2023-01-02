@@ -213,7 +213,9 @@ def dump_projects(api):
         sorted(Path(tdir.name, "info").glob("*.yaml")), lambda p: p.name.split("-")[0]
     ):
         proj_dic = yaml.safe_load(Path(sorted(vs)[-1]).read_text())
-        last_tag = sorted(proj_dic["tags"], key=lambda t: tuple(map(int, t.split("/")[2].split("."))))[-1]
+        last_tag = sorted(
+            proj_dic["tags"], key=lambda t: tuple(map(int, t.split("/")[2].split(".")))
+        )[-1]
         _, v, tagid, __ = last_tag.split("/")  # zimmer-v0/0.0/2022.4.19.1/complete
         repo_name = proj_dic["uri"].split("/")[-1]
         readme_md = requests.get(

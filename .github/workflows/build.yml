@@ -27,3 +27,6 @@ jobs:
     - name: Build
       run: |
         inv build --commit
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
