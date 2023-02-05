@@ -1,5 +1,5 @@
 ---
-last_published: 2023.2.3.2
+last_published: 2023.2.4.2
 last_version: '0.0'
 name: bbc
 readme: '<h1>bbc-sentiment</h1>
