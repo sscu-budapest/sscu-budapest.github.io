@@ -1,5 +1,5 @@
 ---
-last_published: 2023.5.2.1
+last_published: 2023.5.3.1
 last_version: '0.1'
 name: ingatlan
 readme: '<h1>Research Project Template - WIP</h1>
