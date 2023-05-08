@@ -1,6 +1,6 @@
 ---
 latest:
-- last: '2022-05-14'
+- last: '2023-05-07'
   link: https://github.com/endremborza/sqlmermaid/commits?author=endremborza
   name: endremborza
 link: https://github.com/endremborza/sqlmermaid
