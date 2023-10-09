@@ -1,6 +1,6 @@
 ---
 latest:
-- last: '2023-05-07'
+- last: '2023-10-08'
   link: https://github.com/endremborza/aswan/commits?author=endremborza
   name: endremborza
 - last: '2022-05-01'
