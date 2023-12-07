@@ -1,6 +1,6 @@
 ---
 latest:
-- last: '2022-11-23'
+- last: '2023-12-06'
   link: https://github.com/endremborza/colassigner/commits?author=endremborza
   name: endremborza
 link: https://github.com/endremborza/colassigner
